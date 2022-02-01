@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Book</title>
+    
+</head>
+<body>
+    <br />
+    <br />
+    <h2>Book Details</h2>
+    <br />
+    <br />
+
+    <div id="Book">
+        <div>
+
+            <label class="carousel">
+                <b>Search Book:</b> <input ng-model="searchBook" />
+            </label>
+
+            <table class="table table-hover table-striped table-dark">
+                <tr>
+                    <td>
+                        <input type="text" hidden ng-model="objBook.BookID" />
+                        <input type="text" class="form-control" placeholder="Enter Book Name" ng-model="objBook.BookName" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Enter Publisher Name" ng-model="objBook.BookPublisher" />
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="Enter Category" ng-model="objBook.Category" />
+                    </td>
+                    <td>
+
+                        <button class="btn btn-success" ng-click="SaveBook()">Save</button>
+                        <button class="btn btn-primary" ng-click="UpdateBook()">Update</button>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table class="table table-dark table-hover">
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Publisher</td>
+                    <td>Category</td>
+                    <td>Action</td>
+                </tr>
+                <tr ng-repeat="k in BookList | filter : searchBook">
+                    <td>{{k.bookID}}</td>
+                    <td>{{k.bookName}}</td>
+                    <td>{{k.bookPublisher}}</td>
+                    <td>{{k.category}}</td>
+                    <td>
+                        <!--<button class="btn btn-primary" ng-click="EditBook(b)">Edit</button>-->
+                        <button class="btn btn-danger" ng-click="DeleteBook(k.bookID)">Delete</button>
+                        <button class="btn btn-primary" ng-click="EditBook(k)">Edit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Default</title>
+
+</head>
+
+<body ng-app="myApp">
+    <h1>Welcome To The Library!</h1>
+    <jashim-directive></jashim-directive>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("jashimDirective", function () {
+            return {
+                template: "<h1>Welcome To The Library!</h1>"
+            };
+        });
+    </script>
+
+</body>
+</html>

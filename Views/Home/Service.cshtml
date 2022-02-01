@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Service";
+}
+
+<script src="~/lib/angular.js/angular.min.js"></script>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+        AngularJs Custom Service Example
+    </title>
+
+    <script type="text/javascript">
+        var app = angular.module('appServices', []);
+        app.service('angularServices', function ($http) {
+            this.squareofnumber = function (x) {
+                return x * x;
+            }
+        });
+
+        app.controller("angularController", function ($scope, angularServices) {
+
+            $scope.getresult = angularServices.squareofnumber(20211220);
+
+        });
+    </script>
+</head>
+
+<body ng-app="appServices">
+    <div ng-controller="angularController">
+        <br />
+        <br />
+        <p><h1 style="font-size:30pt; color:green;"> AngularJS Custom Service To Square a Number</h1></p>
+        <h2 style="font-size:30pt; color:blue;">Square of Number 20211220 : <b style="font-size:30pt; color:red;">{{getresult}}</b></h2>
+    </div>
+</body>
+
+</html>
+

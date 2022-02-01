@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <DebugType>full</DebugType>
+    <UserSecretsId>aspnet-Library21-9AA1A72A-BDF9-49BB-B197-DC6E5B8D8B2F</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\app\**" />
+    <Content Remove="wwwroot\app\**" />
+    <EmbeddedResource Remove="wwwroot\app\**" />
+    <None Remove="wwwroot\app\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BranchController.cs" />
+    <Compile Remove="Controllers\EmployerController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Branch.cshtml" />
+    <Content Remove="Views\Home\Employer.cshtml" />
+    <Content Remove="wwwroot\js\BranchController.js" />
+    <Content Remove="wwwroot\js\directive.js" />
+    <Content Remove="wwwroot\js\EmployerController.js" />
+    <Content Remove="wwwroot\js\myBookIssuesFactory.js" />
+    <Content Remove="wwwroot\js\myFactory - Copy.js" />
+    <Content Remove="wwwroot\Pages\Book.html" />
+    <Content Remove="wwwroot\Pages\Default.html" />
+    <Content Remove="wwwroot\Pages\Index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Pages\Book.html" />
+    <None Include="wwwroot\Pages\Default.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.1.16" />
+    <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.1.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="2.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.14" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+  </ItemGroup>
+
+</Project>

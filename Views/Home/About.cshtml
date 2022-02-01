@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+@*<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>*@
+
+<script src="~/lib/angular.js/angular.min.js"></script>
+
+<div ng-app="myApp">
+
+    <jashim-directive></jashim-directive>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("jashimDirective", function () {
+            return {
+                template: "<h1>Welcome To The Library!</h1>"
+            };
+        });      
+
+    </script>
+
+</div>

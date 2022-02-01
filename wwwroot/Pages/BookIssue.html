@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html ng-app="BookIssueApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Book Issue</title>
+    <script src="../js/BookIssueController.js"></script>
+</head>
+<body ng-controller="BookIssueCtrl">
+    <br />
+    <br />
+    <h2>Book Issue Details</h2>
+    <br />
+
+
+    <div>
+
+        <label class="carousel">
+            <b>Search Information:</b> <input ng-model="searchIssue" />
+        </label>
+        <br />
+        <table class="table table-hover table-striped">
+            <tr>
+                <td>
+                    <input type="text" hidden ng-model="objBookIssue.BookIssueID" />
+                    <input type="date" class="form-control" placeholder="Enter Issue Date" ng-model="objBookIssue.IssueDate" />
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Member Address" ng-model="objBookIssue.MemberAddress" />
+                </td>
+                <td>
+                    <input type="number" class="form-control" placeholder="Choose BookID" ng-model="objBookIssue.BookID" />
+                </td>
+                <!--<td>
+                    <select required name="bookName" class="form-control" ng-click="getBookList()" ng-model="bookIssueInfo.bookID">
+                        <option value="">--Select Book--
+                        <option>
+                        <option ng-repeat="b in BookArray" value="{{b.bookID}}">{{b.bookName}}</option>
+                    </select>
+                </td>-->
+                <!--<td>
+                    <select required name="bookName" class="form-control" ng-options=" b.bookID as b.bookName for b in BookArray1" ng-model="bookIssueInfo.bookID"></select>
+                </td>-->
+                <!--<td>
+                    <select required name="bookName" class="from-group" ng-click="getBookList()" ng-model="bookIssueInfo.bookID" ng-options="b.bookID as b.bookName for b in BookArray">
+                        --Select Book--
+                    </select>
+                </td>-->
+                <td>
+
+                    <button class="btn btn-success" ng-click="SaveIssueBooks()">Save</button>
+                    <button class="btn btn-primary" ng-click="UpdateIssueBooks()">Update</button>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table class="table table-dark table-hover">
+            <tr>
+                <td>Issue ID</td>
+                <td>Issue Date</td>
+                <td>Member Address</td>
+                <td>Book ID</td>
+                <td>Action</td>
+            </tr>
+            <tr ng-repeat="b in BookIssueList | filter : searchIssue">
+                <td>{{b.bookIssueID}}</td>
+                <td>{{b.issueDate}}</td>
+                <td>{{b.memberAddress}}</td>
+                <td>{{b.bookID}}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="EditIssueBook(b)">Edit</button>
+                    <button class="btn btn-danger" ng-click="DeleteIssueBook(b.bookIssueID)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

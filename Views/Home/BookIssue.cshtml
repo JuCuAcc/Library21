@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section scripts {
+
+    <script src="~/lib/angular.js/angular.js"></script>
+
+    <script type="text/javascript">
+        angular.module("BookIssueApp", []);
+
+    </script>
+    <script src="~/js/BookIssueController.js"></script>
+}
+
+<div class="container container-fluid" ng-app="BookIssueApp" ng-controller="BookIssueCtrl">
+    <br />    
+    <h2>Book Issue Details</h2>
+    <br />
+    <div class="table table-responsive col-xs-12">
+        <label class="carousel">
+            <b>Search Issue Info:</b> <input ng-model="searchIssueInfo" />
+            <br /><br />
+        </label>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Book IssueID</th>
+                    <th>Issue Date</th>
+                    <th>Member Address</th>
+                    <th>Book ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in BookIssueArray | filter : searchIssueInfo">
+                    <td>{{item.bookIssueID}}</td>
+                    <td>{{item.issueDate}}</td>
+                    <td>{{item.memberAddress}}</td>
+                    <td>{{item.bookID}}</td>
+                    <td>
+                        <a href="#" class="text-info" ng-click="updateStart(item)"><i class="glyphicon glyphicon-check">Edit</i></a>
+                        <a href="#" class="text-danger" ng-click="deleteInformation(item)"><i class="glyphicon glyphicon-trash">Delete</i></a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" readonly class="alert alert-info" style="width: 90%; height : 90%;" ng-model="bookIssueInfo.bookIssueID" /></td>
+                    <td><input type="date" class="alert alert-info" style="width: 90%; height : 90%;" ng-model="bookIssueInfo.issueDate" /></td>
+                    <td><input type="text" class="alert alert-info" style="width: 90%; height : 90%;" ng-model="bookIssueInfo.memberAddress" /></td>
+
+                    <td>
+                        <select required name="bookName" class="form-control" ng-click="getBookList()" ng-model="bookIssueInfo.bookID">
+                            <option value="">--Select Book--</option>
+                            <option ng-repeat="b in BookArray" value="{{b.bookID}}">{{b.bookName}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" ng-hide="bookIssueInfo.bookIssueID" ng-click="bookIssueInsert(bookIssueInfo)"><i class="glyphicon glyphicon-cloud-download"></i>Create</button>
+                        <button class="btn btn-success" ng-show="bookIssueInfo.bookIssueID" ng-click="updateConfirm(bookIssueInfo)"><i class="glyphicon glyphicon-refresh"></i>Update</button>
+                        <button class="btn btn-success" ng-show="bookIssueInfo.bookIssueID" ng-click="cancel()"><i class="glyphicon glyphicon-remove-sign"></i>Cancel</button>
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <span style="color:red">{{msg}}</span><br />
+
+</div>
+
+
+
